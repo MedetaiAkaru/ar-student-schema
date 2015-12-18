@@ -2,7 +2,7 @@ require_relative '../../db/config'
 
 class Student < ActiveRecord::Base
 # implement your Student model here
-validates :email, :format => { :with => /[a-z]+@[a-z]+\.[a-z]{2,}/, message: "Email invalid" }
+validates :email, :format => { :with => /\w+@\w+\.[a-z]{2,}\.?[a-z]*/, message: "Email invalid" }
 validates :email, :uniqueness => true
 validates :age, :numericality => { :greater_than => 5 }
 validates :phone, :format => { :with => /.*\d+.*\d+.*\d+.*\d+.*\d+.*\d+.*\d+.*\d+.*\d+.*\d+.*/ }
